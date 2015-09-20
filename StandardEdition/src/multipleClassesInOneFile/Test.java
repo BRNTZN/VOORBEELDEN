@@ -1,4 +1,4 @@
-package dubbelKlasse;
+package multipleClassesInOneFile;
 
 class First {
 	public void info() {
