@@ -1,6 +1,6 @@
 package primitiveVsReference;
 
-public class Main2 {
+public class ReferenceDatatypeTest {
 
 	public static void main(String[] args) {
 		int a = 0;
