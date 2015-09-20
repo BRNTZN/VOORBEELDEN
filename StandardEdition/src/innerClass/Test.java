@@ -1,4 +1,4 @@
-package innerClassWithTest;
+package innerClass;
 
 public class Test {
 

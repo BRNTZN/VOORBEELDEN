@@ -1,4 +1,4 @@
-package innerClassWithTest2;
+package innerClass2;
 
 public class Outer {
 	private Inner inner = new Inner("inner");
