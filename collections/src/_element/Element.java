@@ -19,4 +19,6 @@ public class Element implements Comparable<Element>{
 	public String toString() {
 		return a+"+"+b+"="+String.valueOf(a+b);
 	}
+	
+	
 }
