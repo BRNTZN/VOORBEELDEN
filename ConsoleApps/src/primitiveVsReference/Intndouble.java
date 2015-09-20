@@ -1,6 +1,6 @@
 package primitiveVsReference;
 
-public class Main {
+public class Intndouble {
 
 	public static void main(String[] args) {
 		int a = 7;
