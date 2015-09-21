@@ -1,4 +1,4 @@
-package jopt;
+package invoer;
 
 import javax.swing.JOptionPane;
 

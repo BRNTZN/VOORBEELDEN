@@ -1,8 +1,8 @@
-package test;
+package invoer;
 
 import java.util.Scanner;
 
-public class Varargs {
+public class Scannerr {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
