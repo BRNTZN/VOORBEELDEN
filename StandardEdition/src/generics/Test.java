@@ -1,5 +1,11 @@
 package generics;
 
+/**
+ *
+ * Sinds Java 5
+ *
+ */
+
 class Dier<V extends Voedsel> {
 	public void eet(V voedsel) {
 	}

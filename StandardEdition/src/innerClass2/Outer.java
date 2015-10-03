@@ -1,6 +1,11 @@
 package innerClass2;
 
 public class Outer {
+
+	/**
+	 * Om via de outer klasse aan de inner klasse te geraken moet de compiler er
+	 * zeker van zijn dat er ook een instantie is van deze inner klasse
+	 */
 	private Inner inner = new Inner("inner");
 	private int getal;
 

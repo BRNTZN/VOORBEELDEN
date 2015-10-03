@@ -1,5 +1,13 @@
 package primitiveVsReference;
 
+/**
+ * Twee objecten vergelijken met == vergelijkt adressen, niet de inhoud. Bij primitieve types wordt de inhoud vergeleken
+ * 
+ * Primitieve types zijn call by value, anderen zijn call by reference
+ * 
+ * Om de inhoud van objecten te vergelijken gebruik je best equals(), overschrijf deze indien nodig
+ * 
+ */
 public class ReferenceDatatypeTest {
 
 	public static void main(String[] args) {

@@ -9,7 +9,8 @@ public class SwitchTest {
 		System.out.println("3 ends up in:");
 		switchCase(3);
 	}
-	public static void switchCase(int a){
+
+	public static void switchCase(int a) {
 		switch (a) {
 		case 0:
 			System.out.println(0);
@@ -17,14 +18,26 @@ public class SwitchTest {
 			System.out.println(2);
 		case 3:
 			System.out.println(3);
-		default: System.out.println("default");
+		default:
+			System.out.println("default");
 		case 5:
 			System.out.println(5);
 			break;
-		case 6: System.out.println(6);
+		case 6:
+			System.out.println(6);
 			break;
-		case 4: System.out.println(4);
-		case -1: System.out.println(-1);
+		case 4:
+			System.out.println(4);
+		case -1:
+			System.out.println(-1);
+			/**
+			 * Toegelaten datatypes in een switch:
+			 * 
+			 * Byte, short, int, enum, String, Character, Byte, Short en
+			 * Integer.
+			 * 
+			 * Strings kan pas sinds Java 7
+			 */
 		}
 	}
 }

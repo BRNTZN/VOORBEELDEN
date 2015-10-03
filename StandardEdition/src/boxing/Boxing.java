@@ -10,4 +10,7 @@ public class Boxing {
 		int b = object;
 		System.out.println(b);
 	}
+	/**
+	 * Sinds Java 5
+	 */
 }
