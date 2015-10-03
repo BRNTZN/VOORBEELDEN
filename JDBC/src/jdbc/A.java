@@ -23,7 +23,7 @@ public class A {
 		String[] voornamen = {"Leon", "Marie-Frances", "Gregory", "Gwen", "Brent"};
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/databank", "root", "root");
-			System.out.println(conn.getCatalog());
+			System.out.println("naam van de databank:" + conn.getCatalog());
 			PreparedStatement ps = conn.prepareStatement("insert into tabel (id, naam, voornaam) values (?, ?, ?)");
 			for (int i = 0; i < 5; i++) {
 				ps.setInt(1, i);
@@ -32,6 +32,7 @@ public class A {
 				ps.addBatch();
 			}
 			ps.executeBatch();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
