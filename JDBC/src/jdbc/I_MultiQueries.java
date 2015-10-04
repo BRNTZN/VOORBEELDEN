@@ -21,8 +21,9 @@ public class I_MultiQueries {
 				int updateCount = s.getUpdateCount();
 				while (isResultSet || updateCount != -1) {
 					/**
-					 * if query is select => isResultset if query is update =>
-					 * updatecount != -1
+					 * if query is select => isResultset 
+					 * 
+					 * if query is update => updatecount != -1
 					 */
 					if (isResultSet) {
 						ResultSet rs = s.getResultSet();
@@ -39,13 +40,13 @@ public class I_MultiQueries {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
-
+		
+		/**
+		 * Kan ook met prepared statements
+		 */
 		withPrepared();
 	}
 
-	/**
-	 * Kan ook met prepared statements
-	 */
 	private static void withPrepared() {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/databank?allowMultiQueries=true",
@@ -57,8 +58,9 @@ public class I_MultiQueries {
 				int updateCount = ps.getUpdateCount();
 				while (isResultSet || updateCount != -1) {
 					/**
-					 * if query is select => isResultset if query is update =>
-					 * updatecount != -1
+					 * if query is select => isResultset 
+					 * 
+					 * if query is update => updatecount != -1
 					 */
 					if (isResultSet) {
 						ResultSet rs = ps.getResultSet();
