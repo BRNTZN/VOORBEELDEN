@@ -13,7 +13,7 @@ public class Test3 {
 		count++;
 	}
 	/**
-	 * Keyword synchronized vermijdt thread interleaving op een adres
+	 * Keyword synchronized zorgt ervoor dat maar één thread tegelijk deze methode kan uitvoeren
 	 */
 
 	public void doWork() {
