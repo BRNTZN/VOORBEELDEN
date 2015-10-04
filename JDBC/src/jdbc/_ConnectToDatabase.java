@@ -15,7 +15,9 @@ public class _ConnectToDatabase {
 				 * Do whatever you want here
 				 */
 			} finally {
-				conn.close();
+				conn.close(); 	// door de connectie te sluiten worden
+								// veranderingen niet toegepast wanneer er iets
+								// misloopt
 			}
 		} catch (SQLException e1) {
 			e1.printStackTrace();
