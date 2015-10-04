@@ -19,20 +19,23 @@ public class A_BatchToFillDatabase {
 	 */
 
 	public static void main(String[] args) {
-		String[] namen = {"Courtois", "Turneer", "Courtois", "Courtois", "Courtois"};
-		String[] voornamen = {"Leon", "Marie-Frances", "Gregory", "Gwen", "Brent"};
+		String[] namen = { "Courtois", "Turneer", "Courtois", "Courtois", "Courtois" };
+		String[] voornamen = { "Leon", "Marie-Frances", "Gregory", "Gwen", "Brent" };
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/databank", "root", "root");
-			System.out.println("naam van de databank:" + conn.getCatalog());
-			PreparedStatement ps = conn.prepareStatement("insert into tabel (id, naam, voornaam) values (?, ?, ?)");
-			for (int i = 0; i < 5; i++) {
-				ps.setInt(1, i);
-				ps.setString(2, namen[i]);
-				ps.setString(3, voornamen[i]);
-				ps.addBatch();
+			try {
+				System.out.println("naam van de databank:" + conn.getCatalog());
+				PreparedStatement ps = conn.prepareStatement("insert into tabel (id, naam, voornaam) values (?, ?, ?)");
+				for (int i = 0; i < 5; i++) {
+					ps.setInt(1, i);
+					ps.setString(2, namen[i]);
+					ps.setString(3, voornamen[i]);
+					ps.addBatch();
+				}
+				ps.executeBatch();
+			} finally {
+				conn.close();
 			}
-			ps.executeBatch();
-			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -16,8 +16,7 @@ public class E_StoredProcedures {
 		callableStatement();
 		callableStatementInAndOut();
 	}
-	
-	
+
 	/**
 	 * Stored procedure:
 	 * 
@@ -38,17 +37,21 @@ public class E_StoredProcedures {
 	private static void statement() {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/databank", "root", "root");
-			Statement s = conn.createStatement();
-			ResultSet rs = s.executeQuery("call procedure_all");
-			while (rs.next()) {
-				System.out.println(rs.getString(1) + rs.getString(2) + rs.getString(3));
+			try {
+				Statement s = conn.createStatement();
+				ResultSet rs = s.executeQuery("call procedure_all");
+				while (rs.next()) {
+					System.out.println(rs.getString(1) + rs.getString(2) + rs.getString(3));
+				}
+			} finally {
+				conn.close();
 			}
-			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
+
 	/**
 	 * Stored procedure:
 	 * 
@@ -56,8 +59,7 @@ public class E_StoredProcedures {
 	 * 
 	 * delimiter //
 	 * 
-	 * create procedure procedure_in(
-	 * in inputnaam varchar(50))
+	 * create procedure procedure_in( in inputnaam varchar(50))
 	 * 
 	 * begin
 	 * 
@@ -69,21 +71,26 @@ public class E_StoredProcedures {
 	 */
 	private static void preparedStatement() {
 		/**
-		 * Met prepared statements kan je dus handig gebruik maken van inputparameters
+		 * Met prepared statements kan je dus handig gebruik maken van
+		 * inputparameters
 		 */
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/databank", "root", "root");
-			PreparedStatement ps = conn.prepareStatement("call procedure_in(?)");
-			ps.setString(1, "Courtois");
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				System.out.println(rs.getString(1)+rs.getString(2)+rs.getString(3));
+			try {
+				PreparedStatement ps = conn.prepareStatement("call procedure_in(?)");
+				ps.setString(1, "Courtois");
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					System.out.println(rs.getString(1) + rs.getString(2) + rs.getString(3));
+				}
+			} finally {
+				conn.close();
 			}
-			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
+
 	/**
 	 * Stored procedure:
 	 * 
@@ -91,8 +98,7 @@ public class E_StoredProcedures {
 	 * 
 	 * delimiter //
 	 * 
-	 * create procedure procedure_out(
-	 * out totaal int)
+	 * create procedure procedure_out( out totaal int)
 	 * 
 	 * begin
 	 * 
@@ -108,15 +114,19 @@ public class E_StoredProcedures {
 		 */
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/databank", "root", "root");
-			CallableStatement cs = conn.prepareCall("call procedure_out(?)");
-			cs.registerOutParameter(1, java.sql.Types.INTEGER);
-			cs.executeUpdate();
-			System.out.println(cs.getString(1));
-			conn.close();
+			try {
+				CallableStatement cs = conn.prepareCall("call procedure_out(?)");
+				cs.registerOutParameter(1, java.sql.Types.INTEGER);
+				cs.executeUpdate();
+				System.out.println(cs.getString(1));
+			} finally {
+				conn.close();
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
+
 	/**
 	 * Stored procedure:
 	 * 
@@ -124,9 +134,8 @@ public class E_StoredProcedures {
 	 * 
 	 * delimiter //
 	 * 
-	 * create procedure procedure_inout(
-	 * in inputnaam varchar(50),
-	 * out totaal int)
+	 * create procedure procedure_inout( in inputnaam varchar(50), out totaal
+	 * int)
 	 * 
 	 * begin
 	 * 
@@ -142,12 +151,15 @@ public class E_StoredProcedures {
 		 */
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/databank", "root", "root");
-			CallableStatement cs = conn.prepareCall("call procedure_inout(?, ?)");
-			cs.setString(1, "Turneer");
-			cs.registerOutParameter(2, java.sql.Types.INTEGER);
-			cs.executeUpdate();
-			System.out.println(cs.getString(2));
-			conn.close();
+			try {
+				CallableStatement cs = conn.prepareCall("call procedure_inout(?, ?)");
+				cs.setString(1, "Turneer");
+				cs.registerOutParameter(2, java.sql.Types.INTEGER);
+				cs.executeUpdate();
+				System.out.println(cs.getString(2));
+			} finally {
+				conn.close();
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

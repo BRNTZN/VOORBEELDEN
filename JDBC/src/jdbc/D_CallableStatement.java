@@ -18,14 +18,18 @@ public class D_CallableStatement {
 	public static void main(String[] args) {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/databank", "root", "root");
-			CallableStatement cs = conn.prepareCall("select * from tabel where naam = ?");
-			cs.setString(1, "Courtois");
-			ResultSet rs = cs.executeQuery();
-			while (rs.next()) {
-				System.out.print(rs.getString(1));
-				System.out.println(rs.getString(3));
+			try {
+				CallableStatement cs = conn.prepareCall("select * from tabel where naam = ?");
+				cs.setString(1, "Courtois");
+				ResultSet rs = cs.executeQuery();
+				while (rs.next()) {
+					System.out.print(rs.getString(1));
+					System.out.println(rs.getString(3));
+				}
+				conn.close();
+			} finally {
+
 			}
-			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
