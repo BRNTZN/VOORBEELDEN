@@ -43,4 +43,13 @@ public class A_BatchToFillDatabase {
 		}
 	}
 
+	/**
+	 * !!Een batch is een verzameling van statements om tegelijk te laten
+	 * uitvoeren
+	 * 
+	 * Een probleem bij het uitvoeren van een bepaald statement binnen een batch
+	 * zijn alle vorige statements nog steeds uitgevoerd. Bij Transacties is dit
+	 * niet het geval.
+	 */
+
 }
