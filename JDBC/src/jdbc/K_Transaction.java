@@ -20,7 +20,7 @@ public class K_Transaction {
 				ps = conn.prepareStatement("insert into tabel (id, naam, voornaam) values (?, ?, ?)");
 				ps.setInt(1, 2);
 				ps.setString(2, "Conflict yo");
-				ps.setString(3, "Conflictory");
+				ps.setString(3, "ID mag niet twee keer voorkomen!");
 				ps.executeUpdate();
 				
 				conn.commit();
