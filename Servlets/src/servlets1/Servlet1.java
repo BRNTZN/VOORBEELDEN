@@ -22,7 +22,7 @@ public class Servlet1 extends HttpServlet {
 		out.println("<title>verplichtVeld</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<h1>TEST</h1>");
+		out.println("<h1>TEST1</h1>");
 		out.println("</body>");
 		out.println("</html>");
 	}

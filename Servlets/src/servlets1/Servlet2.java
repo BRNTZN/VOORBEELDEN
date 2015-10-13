@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Servlet2")
+@WebServlet("/blabla")
 public class Servlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -24,7 +24,7 @@ public class Servlet2 extends HttpServlet {
 		out.println("<title>verplichtVeld</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<h1>TEST3</h1>");
+		out.println("<h1>TEST2</h1>");
 		out.println("</body>");
 		out.println("</html>");
 	}
