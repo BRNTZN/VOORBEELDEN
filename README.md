@@ -1,2 +1,2 @@
 # VOORBEELDEN
-Voorbeelden van eender welke Java applicatie
+Voorbeelden van Java SE
